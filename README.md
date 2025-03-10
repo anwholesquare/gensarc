@@ -332,11 +332,20 @@ The evaluation process generates two files:
 ├── app/
 │   ├── main.py
 │   └── requirements.txt
+├── datasets/           # Train/test datasets
+│   ├── test_sarcasm.csv
+│   ├── test_sarcasm copy.csv
+│   └── train_sarcasm.csv
 ├── chunks/              # Split CSV files
 │   └── completed/          # Processed chunks
-├── datasets/           # Train/test datasets
-│   └── gen_sarc.csv       # Final merged file
-└── bensarc.csv        # Original dataset
+├── eval/               # Evaluation results
+│   ├── test_result_*.csv  # Metrics files
+│   └── test_sarcasm_*.csv # Detailed results
+├── bensarc.csv        # Original dataset
+├── gen_sarc.csv       # Final merged dataset
+├── .env               # Environment variables
+├── README.md          # Documentation
+└── output.png         # Evaluation visualization
 ```
 
 ## Implementation Notes
@@ -437,6 +446,26 @@ Distribution:
 - Non-sarcastic (0): 98
 
 The model shows balanced performance with high accuracy and F1 score, indicating effective sarcasm detection across both classes.
+
+### Directory Contents:
+
+- **app/**: Core application code
+  - `main.py`: FastAPI application with all endpoints
+  - `requirements.txt`: Python dependencies
+
+- **datasets/**: Training and testing data
+  - `train_sarcasm.csv`: Training dataset (99% of data)
+  - `test_sarcasm.csv`: Testing dataset (1% of data)
+
+- **eval/**: Evaluation results
+  - `test_result_*.csv`: Performance metrics
+  - `test_sarcasm_*.csv`: Detailed predictions
+
+- **Root files**:
+  - `bensarc.csv`: Original Bengali sarcasm dataset
+  - `gen_sarc.csv`: Processed dataset with generated replies
+  - `.env`: API keys and configuration
+  - `output.png`: Evaluation metrics visualization
 
 
 
