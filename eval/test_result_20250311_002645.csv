@@ -1,0 +1,2 @@
+accuracy,precision,recall,f1,true_positives,false_positives,true_negatives,false_negatives,total_samples,reply_relevance_rate
+0.7410714285714286,0.8728813559322034,0.7054794520547946,0.7803030303030304,103,15,63,43,224,0.9946524064171123

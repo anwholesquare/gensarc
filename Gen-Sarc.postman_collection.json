@@ -1,0 +1,813 @@
+{
+	"info": {
+		"_postman_id": "bd03f715-ea2a-4950-8d83-b8143b329bc7",
+		"name": "Gen-Sarc",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8123498"
+	},
+	"item": [
+		{
+			"name": "Process single csv",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/process-csv?limit=5000&offset=100",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"process-csv"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "5000"
+						},
+						{
+							"key": "offset",
+							"value": "100"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "process single csv",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/process-csv?limit=5000&offset=100",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"process-csv"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "5000"
+								},
+								{
+									"key": "offset",
+									"value": "100"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Mon, 10 Mar 2025 09:16:59 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "106"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"CSV processing completed\",\n    \"processed_range\": \"0 to 99\",\n    \"total_rows\": 25636,\n    \"processed_rows\": 100\n}"
+				}
+			]
+		},
+		{
+			"name": "Split csv",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/split-csv",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"split-csv"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "http://localhost:8000/split-csv",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/split-csv",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"split-csv"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Mon, 10 Mar 2025 10:44:46 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "1790"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"CSV split completed\",\n    \"total_rows\": 23161,\n    \"number_of_chunks\": 47,\n    \"chunk_size\": 500,\n    \"chunk_files\": [\n        \"chunks/bensarc_chunk_1_of_47.csv\",\n        \"chunks/bensarc_chunk_2_of_47.csv\",\n        \"chunks/bensarc_chunk_3_of_47.csv\",\n        \"chunks/bensarc_chunk_4_of_47.csv\",\n        \"chunks/bensarc_chunk_5_of_47.csv\",\n        \"chunks/bensarc_chunk_6_of_47.csv\",\n        \"chunks/bensarc_chunk_7_of_47.csv\",\n        \"chunks/bensarc_chunk_8_of_47.csv\",\n        \"chunks/bensarc_chunk_9_of_47.csv\",\n        \"chunks/bensarc_chunk_10_of_47.csv\",\n        \"chunks/bensarc_chunk_11_of_47.csv\",\n        \"chunks/bensarc_chunk_12_of_47.csv\",\n        \"chunks/bensarc_chunk_13_of_47.csv\",\n        \"chunks/bensarc_chunk_14_of_47.csv\",\n        \"chunks/bensarc_chunk_15_of_47.csv\",\n        \"chunks/bensarc_chunk_16_of_47.csv\",\n        \"chunks/bensarc_chunk_17_of_47.csv\",\n        \"chunks/bensarc_chunk_18_of_47.csv\",\n        \"chunks/bensarc_chunk_19_of_47.csv\",\n        \"chunks/bensarc_chunk_20_of_47.csv\",\n        \"chunks/bensarc_chunk_21_of_47.csv\",\n        \"chunks/bensarc_chunk_22_of_47.csv\",\n        \"chunks/bensarc_chunk_23_of_47.csv\",\n        \"chunks/bensarc_chunk_24_of_47.csv\",\n        \"chunks/bensarc_chunk_25_of_47.csv\",\n        \"chunks/bensarc_chunk_26_of_47.csv\",\n        \"chunks/bensarc_chunk_27_of_47.csv\",\n        \"chunks/bensarc_chunk_28_of_47.csv\",\n        \"chunks/bensarc_chunk_29_of_47.csv\",\n        \"chunks/bensarc_chunk_30_of_47.csv\",\n        \"chunks/bensarc_chunk_31_of_47.csv\",\n        \"chunks/bensarc_chunk_32_of_47.csv\",\n        \"chunks/bensarc_chunk_33_of_47.csv\",\n        \"chunks/bensarc_chunk_34_of_47.csv\",\n        \"chunks/bensarc_chunk_35_of_47.csv\",\n        \"chunks/bensarc_chunk_36_of_47.csv\",\n        \"chunks/bensarc_chunk_37_of_47.csv\",\n        \"chunks/bensarc_chunk_38_of_47.csv\",\n        \"chunks/bensarc_chunk_39_of_47.csv\",\n        \"chunks/bensarc_chunk_40_of_47.csv\",\n        \"chunks/bensarc_chunk_41_of_47.csv\",\n        \"chunks/bensarc_chunk_42_of_47.csv\",\n        \"chunks/bensarc_chunk_43_of_47.csv\",\n        \"chunks/bensarc_chunk_44_of_47.csv\",\n        \"chunks/bensarc_chunk_45_of_47.csv\",\n        \"chunks/bensarc_chunk_46_of_47.csv\",\n        \"chunks/bensarc_chunk_47_of_47.csv\"\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Process-Chunks",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/process-chunks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"process-chunks"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "http://localhost:8000/process-chunks",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/process-chunks",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"process-chunks"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Mon, 10 Mar 2025 12:38:13 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "2288"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"All chunks processed\",\n    \"chunks_processed\": 24,\n    \"results\": [\n        {\n            \"filename\": \"chunks/bensarc_chunk_37_of_47.csv\",\n            \"status\": \"completed\",\n            \"rows_processed\": 298\n        },\n        {\n            \"filename\": \"chunks/bensarc_chunk_23_of_47.csv\",\n            \"status\": \"completed\",\n            \"rows_processed\": 500\n        },\n        {\n            \"filename\": \"chunks/bensarc_chunk_40_of_47.csv\",\n            \"status\": \"completed\",\n            \"rows_processed\": 500\n        },\n        {\n            \"filename\": \"chunks/bensarc_chunk_24_of_47.csv\",\n            \"status\": \"completed\",\n            \"rows_processed\": 500\n        },\n        {\n            \"filename\": \"chunks/bensarc_chunk_30_of_47.csv\",\n            \"status\": \"completed\",\n            \"rows_processed\": 500\n        },\n        {\n            \"filename\": \"chunks/bensarc_chunk_29_of_47.csv\",\n            \"status\": \"completed\",\n            \"rows_processed\": 500\n        },\n        {\n            \"filename\": \"chunks/bensarc_chunk_47_of_47.csv\",\n            \"status\": \"completed\",\n            \"rows_processed\": 161\n        },\n        {\n            \"filename\": \"chunks/bensarc_chunk_22_of_47.csv\",\n            \"status\": \"completed\",\n            \"rows_processed\": 500\n        },\n        {\n            \"filename\": \"chunks/bensarc_chunk_36_of_47.csv\",\n            \"status\": \"completed\",\n            \"rows_processed\": 500\n        },\n        {\n            \"filename\": \"chunks/bensarc_chunk_41_of_47.csv\",\n            \"status\": \"completed\",\n            \"rows_processed\": 500\n        },\n        {\n            \"filename\": \"chunks/bensarc_chunk_33_of_47.csv\",\n            \"status\": \"completed\",\n            \"rows_processed\": 500\n        },\n        {\n            \"filename\": \"chunks/bensarc_chunk_27_of_47.csv\",\n            \"status\": \"completed\",\n            \"rows_processed\": 500\n        },\n        {\n            \"filename\": \"chunks/bensarc_chunk_44_of_47.csv\",\n            \"status\": \"completed\",\n            \"rows_processed\": 500\n        },\n        {\n            \"filename\": \"chunks/bensarc_chunk_35_of_47.csv\",\n            \"status\": \"completed\",\n            \"rows_processed\": 500\n        },\n        {\n            \"filename\": \"chunks/bensarc_chunk_21_of_47.csv\",\n            \"status\": \"completed\",\n            \"rows_processed\": 500\n        },\n        {\n            \"filename\": \"chunks/bensarc_chunk_38_of_47.csv\",\n            \"status\": \"completed\",\n            \"rows_processed\": 500\n        },\n        {\n            \"filename\": \"chunks/bensarc_chunk_42_of_47.csv\",\n            \"status\": \"completed\",\n            \"rows_processed\": 500\n        },\n        {\n            \"filename\": \"chunks/bensarc_chunk_26_of_47.csv\",\n            \"status\": \"completed\",\n            \"rows_processed\": 500\n        },\n        {\n            \"filename\": \"chunks/bensarc_chunk_32_of_47.csv\",\n            \"status\": \"completed\",\n            \"rows_processed\": 500\n        },\n        {\n            \"filename\": \"chunks/bensarc_chunk_45_of_47.csv\",\n            \"status\": \"completed\",\n            \"rows_processed\": 500\n        },\n        {\n            \"filename\": \"chunks/bensarc_chunk_34_of_47.csv\",\n            \"status\": \"completed\",\n            \"rows_processed\": 500\n        },\n        {\n            \"filename\": \"chunks/bensarc_chunk_39_of_47.csv\",\n            \"status\": \"completed\",\n            \"rows_processed\": 500\n        },\n        {\n            \"filename\": \"chunks/bensarc_chunk_43_of_47.csv\",\n            \"status\": \"completed\",\n            \"rows_processed\": 500\n        },\n        {\n            \"filename\": \"chunks/bensarc_chunk_18_of_47.csv\",\n            \"status\": \"completed\",\n            \"rows_processed\": 410\n        }\n    ],\n    \"combined_file\": \"new_processed.csv\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Merge Completed",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/merge-completed",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"merge-completed"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "http://localhost:8000/merge-completed",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/merge-completed",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"merge-completed"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Mon, 10 Mar 2025 13:04:21 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "118"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Completed files merged successfully\",\n    \"files_processed\": 47,\n    \"total_rows\": 22474,\n    \"output_file\": \"gen_sarc.csv\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Create Test and Train Dataset",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/create-datasets?test_size=0.01&random_state=123",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"create-datasets"
+					],
+					"query": [
+						{
+							"key": "test_size",
+							"value": "0.01"
+						},
+						{
+							"key": "random_state",
+							"value": "123"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create Test and Train Dataset",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/create-datasets?test_size=0.01&random_state=123",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"create-datasets"
+							],
+							"query": [
+								{
+									"key": "test_size",
+									"value": "0.01"
+								},
+								{
+									"key": "random_state",
+									"value": "123"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Mon, 10 Mar 2025 13:13:53 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "258"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Datasets created successfully\",\n    \"total_rows\": 22474,\n    \"test_rows\": 224,\n    \"train_rows\": 22250,\n    \"test_distribution\": {\n        \"0\": 126,\n        \"1\": 98\n    },\n    \"train_distribution\": {\n        \"0\": 12490,\n        \"1\": 9760\n    },\n    \"files\": {\n        \"test\": \"datasets/test_sarcasm.csv\",\n        \"train\": \"datasets/train_sarcasm.csv\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Bulk Dataset Creation",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/bulk-create-dataset?chunk_size=1000&max_concurrent=10&test_size=0.02&random_state=456",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"bulk-create-dataset"
+					],
+					"query": [
+						{
+							"key": "chunk_size",
+							"value": "1000"
+						},
+						{
+							"key": "max_concurrent",
+							"value": "10"
+						},
+						{
+							"key": "test_size",
+							"value": "0.02"
+						},
+						{
+							"key": "random_state",
+							"value": "456"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Upload to Qdrant",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/upload-to-qdrant?collection_name=bengali_sarcasm_v1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"upload-to-qdrant"
+					],
+					"query": [
+						{
+							"key": "collection_name",
+							"value": "bengali_sarcasm_v1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Infer Text",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"message\": \"সাকিব এখন পলিটক্যালিও অলরাউন্ডার\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/infer?n_embedding=10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"infer"
+					],
+					"query": [
+						{
+							"key": "n_embedding",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Infer Text",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"message\": \"কথা হল তাদের শনাক্ত হল কিভাবে?\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/infer?n_embedding=10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"infer"
+							],
+							"query": [
+								{
+									"key": "n_embedding",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Mon, 10 Mar 2025 17:46:26 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "4657"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"final_verdict\": {\n        \"is_sarcastic\": false,\n        \"confidence\": 0.32489288787500004,\n        \"explanation\": \"Final prediction combines LLM analysis (confidence: 0.68) and embedding similarity (normalized confidence: 0.36). Methods disagree on sarcasm detection. Final confidence: 0.32\"\n    },\n    \"is_llm_predicted_sarcasm\": 1,\n    \"is_embedded_predicted_sarcasm\": false,\n    \"reply\": \"তাদের শনাক্তের জটিলতা বুঝতে গেলে কোনো বিজ্ঞানীর ডিগ্রি লাগবে, তাই না?\",\n    \"similar_texts\": [\n        {\n            \"text\": \"যারা হয়েছে শনাক্ত তাদের করা হোক বিচ্ছিন্ন !\",\n            \"polarity\": 0,\n            \"reply\": \"আরে বাবা, বিচ্ছিন্ন করা তো সহজ! আগে তো বিচ্ছিন্ন হওয়ার জন্য একটা টিকিট লাগবে, নইলে কি আর বিচ্ছিন্ন হওয়া যায়? 😂\",\n            \"score\": 0.51541257\n        },\n        {\n            \"text\": \"প্রাণ থেকে ভালোবাসা জানাচ্ছি যারা এই বিপদের সময় পাশে থাকছেন । বেশ কিছুদিন ধরেই রাজশাহী অঞ্চলে পাবনাতে শনাক্তের সংখ্যা অন্যান্য জেলা গুলো থেকে ভয়াবহ ।\",\n            \"polarity\": 0,\n            \"reply\": null,\n            \"score\": 0.46208876\n        },\n        {\n            \"text\": \"কথা কিন্তু ঠিক আছে\",\n            \"polarity\": 0,\n            \"reply\": null,\n            \"score\": 0.45444852\n        },\n        {\n            \"text\": \"কথা কিন্তু সত্য ।\",\n            \"polarity\": 0,\n            \"reply\": null,\n            \"score\": 0.4511639\n        },\n        {\n            \"text\": \"একটা সত্য কথা বলি ? আপনার মুখ আমার একটুও পছন্দ হয়নি । শীতকালের ঝড়ে পরা পাতার মত মুখ ।\",\n            \"polarity\": 1,\n            \"reply\": \"আচ্ছা, মুখ যদি সর্দির জন্য পরা পাতার মত হয় তবে আপনার মুখ খুলছি না ঠিক আছে!\",\n            \"score\": 0.4494983\n        },\n        {\n            \"text\": \"কথা একশো ভাগ সত্য ।\",\n            \"polarity\": 0,\n            \"reply\": null,\n            \"score\": 0.43952733\n        },\n        {\n            \"text\": \"অনেকেই অনেক কথা বলতেছে । কিন্ত আমার কাছে মনে হচ্ছে ম্যাচ হারার জন্য সাকিবের কোন দোষ দেওয়া যাবেনা ।\",\n            \"polarity\": 0,\n            \"reply\": \"অবশ্যই! সাকিব তো শুধু দলের অধিনায়ক, খেলার দায়িত্ব তার না, ভাবনা তারও না! আমরা তো শুধু দর্শক, আমাদের কি! 😏\",\n            \"score\": 0.43391976\n        },\n        {\n            \"text\": \"সরকারের লক্ষ শেষের দিকে তাই শনাক্ত ও মৃত্যু কমে গেছে ।\",\n            \"polarity\": 0,\n            \"reply\": null,\n            \"score\": 0.43088526\n        },\n        {\n            \"text\": \"আর শান্তির বইনের মলম কত টাকা ?\",\n            \"polarity\": 1,\n            \"reply\": \"দাম কমানোর জন্য শান্তির বইনের মলম দিয়ে থাকি না, কিন্তু আমি করি সাইন্টিফিক বিশ্বাস!\",\n            \"score\": 0.428655\n        },\n        {\n            \"text\": \"বার বার একই কথা দেয়া লাগে কেন ? \",\n            \"polarity\": 0,\n            \"reply\": null,\n            \"score\": 0.42744365\n        }\n    ],\n    \"analysis\": {\n        \"confidence\": 0.68,\n        \"reasoning\": \"The phrase 'কথা হল তাদের শনাক্ত হল কিভাবে?' implies a questioning of the logic or the process behind the identification, suggesting disbelief or skepticism. The use of the word 'কিভাবে' indicates a probing tone that often accompanies sarcasm, especially when there's a perceived absurdity in the context. Given the current social climate regarding identification processes, this phrase plays into the larger narrative of confusion or miscommunication, which can be a fertile ground for sarcasm.\",\n        \"cultural_context\": \"In Bengali culture, questioning the efficacy or reasoning behind bureaucratic processes is common, often laced with sarcasm. The use of questioning in a rhetorical sense reflects a cultural habit of using irony to criticize social issues, especially in times of crisis.\",\n        \"tone_analysis\": \"The tone here is inquisitive but carries an underlying sarcasm that highlights absurdity. The style is conversational and reflective of a common cultural critique, aligning well with the weighted similarity score indicating a higher likelihood of sarcasm.\"\n    }\n}"
+				},
+				{
+					"name": "Nice Answer from Inference",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"message\": \"সাকিব এখন পলিটক্যালিও অলরাউন্ডার\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/infer?n_embedding=10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"infer"
+							],
+							"query": [
+								{
+									"key": "n_embedding",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Mon, 10 Mar 2025 20:45:30 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "4251"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"final_verdict\": {\n        \"is_sarcastic\": 0,\n        \"confidence\": 0.207400221845,\n        \"explanation\": \"Final prediction combines LLM analysis (confidence: 0.76) and embedding similarity (normalized confidence: 0.24). Methods disagree on sarcasm detection. Final confidence: 0.21\"\n    },\n    \"is_llm_predicted_sarcasm\": 1,\n    \"is_embedded_predicted_sarcasm\": false,\n    \"reply\": \"ওরে বাবা! এরপর তাকে তো রাষ্ট্রপতি বানানোর জন্যও মনোনয়ন দিতে হবে! ক্রিকেটের পর রাজনীতিতে অলরাউন্ডার সাকিব, সবার চাইতে ভাল! 😂\",\n    \"similar_texts\": [\n        {\n            \"text\": \"সাকিব ভাই আপনি সত্যি অলরাউন্ডার সেটা যেকোন জায়গায় যে কোন পরিস্থিতিতে\",\n            \"polarity\": 0,\n            \"reply\": null,\n            \"score\": 0.56068414\n        },\n        {\n            \"text\": \"সাকিবের মত অলরাউন্ডার পাওয়া আমাদের ভাগ্যের বেপার ।\",\n            \"polarity\": 0,\n            \"reply\": null,\n            \"score\": 0.5443419\n        },\n        {\n            \"text\": \"সাকিব ভাই সবসময় সবজায়গায় অলরাউন্ডার । সে আর কেউ নয় আমাদের প্রান প্রিয় সাকিব ভাই ।\",\n            \"polarity\": 0,\n            \"reply\": null,\n            \"score\": 0.5355935\n        },\n        {\n            \"text\": \"সাকিব পিএস এল খেলব ।\",\n            \"polarity\": 0,\n            \"reply\": null,\n            \"score\": 0.53547263\n        },\n        {\n            \"text\": \"সাকিব ভাই সম্পর্কে আমার কিছু বলার নেই । ও পুরো ক্রিকেট বিশ্বতেই বিশ্বসেরা অলরাউন্ডার হিসেবে পরিচিত ।\",\n            \"polarity\": 0,\n            \"reply\": null,\n            \"score\": 0.5264402\n        },\n        {\n            \"text\": \"গ্যারি সোবার্স আর জ্যাক ক্যালিসের পর সাকিবই একমাত্র পারফেক্ট অলরাউন্ডার । আর বাকি সবাই হয় ব্যাটিং অলরাউন্ডার নয়তো বোলিং ।\",\n            \"polarity\": 0,\n            \"reply\": null,\n            \"score\": 0.49991894\n        },\n        {\n            \"text\": \"শাকিব একজন বিশ্ব সেরা অলরাউন্ডার কিসের জন্য সেটা তিনি আবারও প্রমান করলেন\",\n            \"polarity\": 0,\n            \"reply\": null,\n            \"score\": 0.49521393\n        },\n        {\n            \"text\": \"সাকিব ভাই পোস্ট দিছে এটিচুড এর।\",\n            \"polarity\": 0,\n            \"reply\": null,\n            \"score\": 0.4812285\n        },\n        {\n            \"text\": \"শ্রী সাকিব আপনি খেলায় এবং ধর্ম পালনেও অলরাউন্ডার\",\n            \"polarity\": 0,\n            \"reply\": null,\n            \"score\": 0.47477937\n        },\n        {\n            \"text\": \"সাকিব ভাই এবার প্রমান করার সময় এসেছে আপনে শুধু একজান ভাল অলরাউন্ডার নন আপনে এক জন ভাল ক্যাপ্টেনও।\",\n            \"polarity\": 0,\n            \"reply\": null,\n            \"score\": 0.47049275\n        }\n    ],\n    \"analysis\": {\n        \"confidence\": 0.762,\n        \"reasoning\": \"The phrase 'সাকিব এখন পলিটক্যালিও অলরাউন্ডার' carries a sarcastic tone. It implies that Sakhib's versatility is not limited to cricket, but extends to politics as well, which exaggerates his capabilities. This suggestion of political involvement as an 'all-rounder' is an ironic twist, mocking the tendency of sports personalities to engage in politics, which is often viewed skeptically by the public. The use of 'এখন' suggests a recent development, adding to the tone of disbelief and irony.\",\n        \"cultural_context\": \"In Bengali culture, the intersection of sports and politics is a sensitive topic. Many people joke about athletes who transition into political roles, often critiquing their qualifications. The phrase plays on this cultural skepticism towards sports figures becoming involved in politics.\",\n        \"tone_analysis\": \"The tone is sarcastic and humorous, playing on the absurdity of Sakhib being labeled as a political all-rounder. The style is light-hearted but critical, aligning well with the similarity score indicating a strong presence of sarcasm.\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Evaluate Test",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/evaluate-test",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"evaluate-test"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Evaluate Test",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/evaluate-test",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"evaluate-test"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Mon, 10 Mar 2025 17:39:20 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "348"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"metrics\": {\n        \"accuracy\": 0.45454545454545453,\n        \"precision\": 0,\n        \"recall\": 0,\n        \"f1\": 0,\n        \"reply_relevance_rate\": 1,\n        \"avg_reply_score\": 0.84375\n    },\n    \"files_saved\": {\n        \"metrics\": \"eval/test_result_20250310_234044.csv\",\n        \"results\": \"eval/test_sarcasm_20250310_234044.csv\"\n    },\n    \"total_evaluated\": 11,\n    \"reply_metrics\": {\n        \"relevant_replies\": 8,\n        \"total_replies\": 8,\n        \"avg_score\": 0.84375\n    }\n}"
+				},
+				{
+					"name": "Evaluate Test",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/evaluate-test",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"evaluate-test"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Mon, 10 Mar 2025 17:53:18 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "419"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"metrics\": {\n        \"accuracy\": 1,\n        \"precision\": 1,\n        \"recall\": 1,\n        \"f1\": 1,\n        \"true_positives\": 0,\n        \"false_positives\": 0,\n        \"true_negatives\": 2,\n        \"false_negatives\": 0,\n        \"total_samples\": 2,\n        \"reply_relevance_rate\": 1,\n        \"avg_reply_score\": 0.9\n    },\n    \"files_saved\": {\n        \"metrics\": \"eval/test_result_20250310_235331.csv\",\n        \"results\": \"eval/test_sarcasm_20250310_235331.csv\"\n    },\n    \"total_evaluated\": 2,\n    \"reply_metrics\": {\n        \"relevant_replies\": 1,\n        \"total_replies\": 1,\n        \"avg_score\": 0.9\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Test Metrics Evalulation",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/calculate-metrics/20250311_002645",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"calculate-metrics",
+						"20250311_002645"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Test Metrics Evalulation",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/calculate-metrics/20250311_002644",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"calculate-metrics",
+								"20250311_002644"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Mon, 10 Mar 2025 19:38:17 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "411"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"metrics\": {\n        \"accuracy\": 0.6607142857142857,\n        \"precision\": 0.5753424657534246,\n        \"recall\": 0.8571428571428571,\n        \"f1\": 0.6885245901639344,\n        \"true_positives\": 84,\n        \"false_positives\": 62,\n        \"true_negatives\": 64,\n        \"false_negatives\": 14,\n        \"total_samples\": 224\n    },\n    \"distributions\": {\n        \"true_labels\": {\n            \"0\": 126,\n            \"1\": 98\n        },\n        \"predictions\": {\n            \"0\": 78,\n            \"1\": 146\n        }\n    },\n    \"confusion_matrix\": {\n        \"true_positives\": 84,\n        \"false_positives\": 62,\n        \"true_negatives\": 64,\n        \"false_negatives\": 14\n    }\n}"
+				},
+				{
+					"name": "Test Metrics Evalulation",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/calculate-metrics/20250311_002645",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"calculate-metrics",
+								"20250311_002645"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Mon, 10 Mar 2025 20:29:36 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "414"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"metrics\": {\n        \"accuracy\": 0.7410714285714286,\n        \"precision\": 0.8728813559322034,\n        \"recall\": 0.7054794520547946,\n        \"f1\": 0.7803030303030304,\n        \"true_positives\": 103,\n        \"false_positives\": 15,\n        \"true_negatives\": 63,\n        \"false_negatives\": 43,\n        \"total_samples\": 224\n    },\n    \"distributions\": {\n        \"true_labels\": {\n            \"0\": 78,\n            \"1\": 146\n        },\n        \"predictions\": {\n            \"0\": 106,\n            \"1\": 118\n        }\n    },\n    \"confusion_matrix\": {\n        \"true_positives\": 103,\n        \"false_positives\": 15,\n        \"true_negatives\": 63,\n        \"false_negatives\": 43\n    }\n}"
+				}
+			]
+		}
+	]
+}
