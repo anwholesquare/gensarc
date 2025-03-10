@@ -5,12 +5,14 @@ Conversational Bengali Sarcasm Understanding and Sarcasm-Infused Bengali Text Ge
 https://github.com/sanzanalora/Ben-Sarc/raw/refs/heads/main/Ben-Sarc_%20Bengali%20Sarcasm%20Detection%20Corpus.xlsx
 
 ## Setup Instructions
+```
 cd app
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 cd ..
 uvicorn app.main:app --reload
+```
 
 ## Environment Setup
 Create a `.env` file with your OpenAI API key:
