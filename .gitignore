@@ -1,0 +1,6 @@
+.env
+.env.*
+*.swo
+.Python
+build/
+develop-eggs/
