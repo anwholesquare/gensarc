@@ -5,12 +5,16 @@ Conversational Bengali Sarcasm Understanding and Sarcasm-Infused Bengali Text Ge
 https://github.com/sanzanalora/Ben-Sarc/raw/refs/heads/main/Ben-Sarc_%20Bengali%20Sarcasm%20Detection%20Corpus.xlsx
 
 ## Setup Instructions
-```
+```bash
+# Clone and setup
+git clone <repository_url>
 cd app
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 cd ..
+
+# Start the server
 uvicorn app.main:app --reload
 ```
 
@@ -229,7 +233,74 @@ Execute the complete pipeline in one call.
 3. Saves progress periodically to prevent data loss
 4. Uses stratified sampling for dataset creation
 5. Supports parallel processing of chunks
-6. Only generates replies for texts with Polarity = 1
+6. Only generates replies for texts with Polarity = 1s
+
+### API Usage
+```bash
+# 1. Generate single sarcastic reply
+curl -X POST "http://localhost:8000/generate-reply" \
+     -H "Content-Type: application/json" \
+     -d '{"text": "আপনার বাংলা টেক্সট"}'
+
+# 2. Process CSV with limits
+curl -X POST "http://localhost:8000/process-csv?limit=1000&offset=0"
+
+# 3. Regenerate existing replies
+curl -X POST "http://localhost:8000/regenerate-replies?limit=500&offset=0"
+
+# 4. Split CSV into chunks
+curl -X POST "http://localhost:8000/split-csv?chunk_size=500"
+
+# 5. Process chunks in parallel
+curl -X POST "http://localhost:8000/process-chunks?max_concurrent=15"
+
+# 6. Merge completed files
+curl -X POST "http://localhost:8000/merge-completed"
+
+# 7. Create train/test datasets
+curl -X POST "http://localhost:8000/create-datasets?test_size=0.01&random_state=42"
+
+# 8. Execute complete pipeline
+curl -X POST "http://localhost:8000/bulk-create-dataset" \
+     -H "Content-Type: application/json" \
+     -d '{
+       "chunk_size": 500,
+       "max_concurrent": 15,
+       "test_size": 0.01,
+       "random_state": 123
+     }'
+```
+
+### Data Processing Pipeline
+```bash
+# Complete pipeline in sequence
+curl -X POST "http://localhost:8000/split-csv?chunk_size=500" && \
+curl -X POST "http://localhost:8000/process-chunks?max_concurrent=15" && \
+curl -X POST "http://localhost:8000/merge-completed" && \
+curl -X POST "http://localhost:8000/create-datasets?test_size=0.01"
+
+# Monitor progress
+watch -n 1 "ls -l chunks/ completed/ datasets/"
+
+# Check generated files
+head -n 5 gen_sarc.csv
+head -n 5 datasets/train_sarcasm.csv
+head -n 5 datasets/test_sarcasm.csv
+```
+
+### Utility Commands
+```bash
+# Count rows in files
+wc -l gen_sarc.csv
+wc -l datasets/train_sarcasm.csv
+wc -l datasets/test_sarcasm.csv
+
+# Check directory sizes
+du -sh chunks/ completed/ datasets/
+
+# Clean up generated files
+rm -rf chunks/ completed/ datasets/ gen_sarc.csv new_processed.csv
+```
 
 
 
