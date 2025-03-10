@@ -15,6 +15,9 @@ import numpy as np
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 from datetime import datetime
 import json
+from fastapi.responses import HTMLResponse
+from fastapi.staticfiles import StaticFiles
+from fastapi import Request
 
 # Load environment variables
 load_dotenv()
@@ -38,6 +41,10 @@ async def get_embedding(text: str) -> List[float]:
     return response.data[0].embedding
 
 app = FastAPI()
+
+# Mount static files
+app.mount("/static", StaticFiles(directory="frontend/css"), name="css")
+app.mount("/js", StaticFiles(directory="frontend/js"), name="js")
 
 # Add CORS middleware
 app.add_middleware(
@@ -112,9 +119,12 @@ async def generate_sarcastic_reply(text: str) -> str:
         print(f"Error: {str(e)}")
         return "Error generating reply"
 
-@app.get("/")
-def read_root():
-    return {"message": "Welcome to the Sarcastic Reply Generator API"}
+@app.get("/", response_class=HTMLResponse)
+async def read_root():
+    # Read the frontend/index.html file
+    with open("frontend/index.html", "r") as f:
+        html_content = f.read()
+    return html_content
 
 @app.post("/generate-reply")
 async def generate_reply(item: TextItem):
@@ -820,8 +830,8 @@ async def infer_sarcasm(request: InferenceRequest, n_embedding: int = 10):
         embedding_confidence = max(0, min(1, embedding_confidence))  # Clip to [0,1]
         
         # Weight the predictions (can be adjusted based on performance)
-        llm_weight = 0.33
-        embedding_weight = 0.67
+        llm_weight = 0.4
+        embedding_weight = 0.6
         
         # Calculate weighted confidence for each prediction
         # Convert boolean predictions to confidence scores in [0,1]
@@ -833,8 +843,8 @@ async def infer_sarcasm(request: InferenceRequest, n_embedding: int = 10):
         embedding_weighted = embedding_weight * embedding_score
         
         # Combine predictions
-        combined_score = (llm_weighted + embedding_weighted)/2
-        final_is_sarcastic = 1 if combined_score >= 0.5 else 0  # Convert to 0/1 integer
+        combined_score = (llm_weighted + embedding_weighted)
+        final_is_sarcastic = 1 if combined_score >= 0.45 else 0  # Convert to 0/1 integer
         
         # Calculate overall confidence  
         final_confidence = combined_score

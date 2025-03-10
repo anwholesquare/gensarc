@@ -1,0 +1,571 @@
+body {
+    transition: background-color 0.3s ease;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.modern-card {
+    transition: all 0.3s ease;
+    border-radius: 16px;
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+}
+
+.modern-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+}
+
+.card-header {
+    border-radius: 16px 16px 0 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.primary-gradient {
+    background: linear-gradient(135deg, #4f46e5, #7c3aed);
+}
+
+.success-gradient {
+    background: linear-gradient(135deg, #10b981, #059669);
+}
+
+.grey-gradient {
+    background: linear-gradient(135deg, #4b5563, #374151);
+}
+
+.info-gradient {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+}
+
+.modern-input {
+    resize: vertical !important;
+    border-radius: 16px;
+    border: 2px solid rgba(99, 102, 241, 0.1);
+    transition: all 0.3s ease;
+    font-family: 'Hind Siliguri', sans-serif;
+    box-shadow: none !important;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    padding: 1.5rem !important;
+    font-size: 1.1rem !important;
+}
+
+/* Placeholder styling for light mode */
+.modern-input::placeholder {
+    color: #9ca3af;
+    opacity: 0.8;
+    font-family: 'Hind Siliguri', sans-serif;
+}
+
+.modern-input:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1) !important;
+    background: white;
+}
+
+.modern-button {
+    border-radius: 12px;
+    font-weight: 500;
+    transition: transform 0.2s, box-shadow 0.2s;
+    background: linear-gradient(135deg, #6366f1, #4f46e5);
+    border: none;
+    padding: 1.25rem 2rem !important;
+    font-size: 1.1rem !important;
+    letter-spacing: 0.5px;
+}
+
+.modern-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(99, 102, 241, 0.2);
+}
+
+.modern-tag {
+    border-radius: 24px;
+    padding: 0.5em 1em;
+    font-weight: 500;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: 1px solid #6366f1ab;
+}
+
+/* Prediction icons */
+.fa-check-circle {
+    color: #10b981;
+}
+
+.fa-times-circle {
+    color: #ef4444;
+}
+
+.is-dark-mode .fa-check-circle {
+    color: #34d399;
+}
+
+.is-dark-mode .fa-times-circle {
+    color: #f87171;
+}
+
+.has-equal-height {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.has-equal-height>div:last-child {
+    flex-grow: 1;
+}
+
+.app-title {
+    background: linear-gradient(135deg, #6366f1, #4f46e5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 2.5rem !important;
+    letter-spacing: -0.5px;
+}
+
+.verdict-text {
+    font-weight: 600;
+    font-size: 2rem !important;
+    background: linear-gradient(135deg, #6366f1, #4f46e5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.similar-text-card {
+    transition: transform 0.2s;
+    border-radius: 16px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    position: relative;
+    border: 1px solid rgba(99, 102, 241, 0.1);
+}
+
+.similar-text-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(99, 102, 241, 0.1);
+    border-color: rgba(99, 102, 241, 0.2);
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.similar-text-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.similar-text-number {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #6366f1;
+    background: rgba(99, 102, 241, 0.1);
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+}
+
+.similar-text-content {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #374151;
+    margin-bottom: 1rem;
+}
+
+.similar-text-reply {
+    font-size: 0.95rem;
+    color: #6b7280;
+    padding: 0.75rem;
+    background: rgba(99, 102, 241, 0.05);
+    border-radius: 0.75rem;
+    margin-top: auto;
+}
+
+.score-indicator {
+    width: 100%;
+    height: 5px;
+    margin-top: 10px;
+    border-radius: 10px;
+    background: linear-gradient(to right,
+            rgba(239, 68, 68, 0.2),
+            /* red */
+            rgba(245, 158, 11, 0.2),
+            /* yellow */
+            rgba(16, 185, 129, 0.2)
+            /* green */
+        );
+    overflow: hidden;
+    position: relative;
+}
+
+.score-marker {
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    position: relative;
+    top: -8.5px;
+    border: 2px solid #fff;
+    background: #6366f1;
+    transform: translateX(-50%);
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.3);
+    z-index: 2;
+    display: none !important;
+}
+
+.confidence-progress {
+    height: 8px;
+    border-radius: 4px;
+}
+
+.is-dark-mode {
+    background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+    color: #fff;
+}
+
+/* Fix title colors in dark mode */
+.is-dark-mode .title,
+.is-dark-mode .subtitle {
+    color: #fff !important;
+}
+
+.is-dark-mode .modern-card {
+    background-color: rgba(31, 41, 55, 0.9);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.is-dark-mode .modern-input {
+    background: rgba(31, 41, 55, 0.9);
+    border-color: rgba(99, 102, 241, 0.2);
+    color: #fff;
+}
+
+/* Placeholder styling for dark mode */
+.is-dark-mode .modern-input::placeholder {
+    color: #6b7280;
+    opacity: 0.8;
+}
+
+.is-dark-mode .modern-input:focus {
+    border-color: #6366f1;
+    background: rgba(31, 41, 55, 1);
+}
+
+.is-dark-mode .button:not(.is-primary):not(.is-success):not(.is-info):not(.is-warning):not(.is-danger):not(.is-link) {
+    background-color: #374151;
+    border-color: #4b5563;
+    color: #fff;
+}
+
+.is-dark-mode .has-background-light {
+    background-color: #111827 !important;
+}
+
+.is-dark-mode .has-text-grey {
+    color: #d1d5db !important;
+}
+
+/* Fix text colors for specific elements in dark mode */
+.is-dark-mode p,
+.is-dark-mode .content,
+.is-dark-mode .card-content {
+    color: #f3f4f6;
+}
+
+/* Improve contrast for small text in dark mode */
+.is-dark-mode small {
+    color: #d1d5db;
+}
+
+.is-dark-mode .score-marker {
+    border-color: rgba(255, 255, 255, 0.9);
+    background: #818cf8;
+    box-shadow: 0 0 0 2px rgba(129, 140, 248, 0.3);
+    display: none !important;
+}
+
+.is-dark-mode .score-indicator {
+    background: linear-gradient(to right,
+            rgba(239, 68, 68, 0.1),
+            rgba(245, 158, 11, 0.1),
+            rgba(16, 185, 129, 0.1));
+}
+
+.is-dark-mode .notification {
+    background-color: #1f2937;
+    color: #fff;
+}
+
+/* Shimmer effect */
+.shimmer {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    background-color: rgba(99, 102, 241, 0.03);
+}
+
+.shimmer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: translateX(-100%);
+    background: linear-gradient(90deg,
+            transparent 0%,
+            rgba(99, 102, 241, 0.05) 15%,
+            rgba(99, 102, 241, 0.1) 30%,
+            rgba(99, 102, 241, 0.05) 45%,
+            transparent 100%);
+    animation: shimmer 1.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.is-dark-mode .shimmer {
+    background-color: rgba(99, 102, 241, 0.02);
+}
+
+.is-dark-mode .shimmer::after {
+    background: linear-gradient(90deg,
+            transparent 0%,
+            rgba(99, 102, 241, 0.03) 15%,
+            rgba(99, 102, 241, 0.06) 30%,
+            rgba(99, 102, 241, 0.03) 45%,
+            transparent 100%);
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    50% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.shimmer-text {
+    height: 1.2em;
+    margin-bottom: 0.5em;
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.shimmer-card {
+    height: 120px;
+    margin: 0;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(99, 102, 241, 0.1);
+}
+
+.is-dark-mode .shimmer-card {
+    background: rgba(31, 41, 55, 0.7);
+    border-color: rgba(99, 102, 241, 0.1);
+}
+
+/* Animations */
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Modern loader */
+.modern-loader {
+    width: 60px;
+    height: 60px;
+    position: relative;
+    margin: 0 auto;
+}
+
+.modern-loader:before,
+.modern-loader:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 3px solid transparent;
+}
+
+.modern-loader:before {
+    border-top-color: #6366f1;
+    animation: spin 1s linear infinite;
+}
+
+.modern-loader:after {
+    border-top-color: #4f46e5;
+    animation: spin 0.75s linear infinite reverse;
+    opacity: 0.6;
+}
+
+.is-dark-mode .modern-loader:before {
+    border-top-color: #818cf8;
+}
+
+.is-dark-mode .modern-loader:after {
+    border-top-color: #6366f1;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Bengali font */
+.bengali-text {
+    font-family: 'Hind Siliguri', sans-serif;
+    line-height: 1.6;
+}
+
+/* Spacing utilities */
+.py-6 {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+/* Helper classes */
+.is-hidden {
+    display: none !important;
+}
+
+/* Floating Action Button */
+.fab-button {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #6366f1, #4f46e5);
+    color: white;
+    border: none;
+    box-shadow: 0 8px 16px rgba(99, 102, 241, 0.2);
+    cursor: pointer;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.fab-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 12px 24px rgba(99, 102, 241, 0.3);
+}
+
+.fab-button .icon {
+    font-size: 1.2rem;
+}
+
+.is-dark-mode .fab-button {
+    background: linear-gradient(135deg, #6366f1, #4f46e5);
+    color: white;
+    box-shadow: 0 8px 16px rgba(99, 102, 241, 0.2);
+}
+
+/* Mobile responsiveness improvements */
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .title.is-2 {
+        font-size: 1.75rem;
+    }
+
+    .title.is-4 {
+        font-size: 1.25rem;
+    }
+
+    .modern-card {
+        border-radius: 10px;
+    }
+
+    .card-header {
+        border-radius: 10px 10px 0 0;
+    }
+
+    .fab-button {
+        bottom: 16px;
+        right: 16px;
+        width: 45px;
+        height: 45px;
+    }
+}
+
+/* Score indicator track highlight */
+.score-indicator::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: var(--score-width, 0%);
+    background: linear-gradient(to right,
+            #ef4444,
+            /* red */
+            #f59e0b,
+            /* yellow */
+            #10b981
+            /* green */
+        );
+    border-radius: 10px;
+    transition: width 0.3s ease;
+}
+
+/* Shimmer loading layout */
+.shimmer-header {
+    height: 24px;
+    width: 60%;
+    margin-bottom: 1rem;
+}
+
+.shimmer-line {
+    height: 12px;
+    width: 100%;
+    margin-bottom: 0.75rem;
+}
+
+.shimmer-line:last-child {
+    width: 80%;
+}
+
+.has-text-grey-light {
+    color: #686464 !important;
+}

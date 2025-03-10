@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sarcasm Detector | Bengali AI</title>
+    <!-- Bulma CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="static/style.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Bengali Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Theme Toggle FAB -->
+    <button id="themeToggle" class="fab-button">
+        <span class="icon">
+            <i class="fas fa-moon"></i>
+        </span>
+    </button>
+
+    <div class="container is-max-desktop py-5 px-4">
+        <!-- Header -->
+        <header class="mb-6">
+            <nav class="level">
+                <div class="level-left">
+                    <div class="level-item">
+                        <div>
+                            <h1 class="title is-2 has-text-weight-bold app-title">Gen-Sarc</h1>
+                            <p class="subtitle is-6 has-text-grey-light mt-2">Conversational Bengali Sarcasm
+                                Understanding and Sarcasm-Infused Bengali Text Generator Using Embeddings and RAG
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Input Section -->
+        <div class="input-section mb-6">
+            <h2 class="title is-4 mb-5">Enter Bengali Text</h2>
+            <div class="field">
+                <div class="control">
+                    <textarea class="textarea is-medium modern-input" id="inputText" rows="4"
+                        placeholder="ভালো হয়ে যাও মাসুদ।"></textarea>
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    <button class="button is-primary is-medium modern-button" id="analyzeBtn"
+                        onclick="analyzeSarcasm()">
+                        <span class="icon">
+                            <i class="fas fa-search"></i>
+                        </span>
+                        <span>Analyze Sarcasm</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Loading Spinner -->
+        <div id="loadingSpinner" class="has-text-centered my-6 is-hidden">
+            <div class="mb-5">
+                <div class="modern-loader"></div>
+                <p class="mt-4 is-size-5 has-text-grey">Analyzing text...</p>
+            </div>
+            <div class="columns is-multiline">
+                <div class="column is-half">
+                    <div class="modern-card shimmer-card">
+                        <div class="p-4">
+                            <div class="shimmer shimmer-header"></div>
+                            <div class="shimmer shimmer-line"></div>
+                            <div class="shimmer shimmer-line"></div>
+                            <div class="shimmer shimmer-line"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-half">
+                    <div class="modern-card shimmer-card">
+                        <div class="p-4">
+                            <div class="shimmer shimmer-header"></div>
+                            <div class="shimmer shimmer-line"></div>
+                            <div class="shimmer shimmer-line"></div>
+                            <div class="shimmer shimmer-line"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-full">
+                    <div class="modern-card shimmer-card">
+                        <div class="p-4">
+                            <div class="shimmer shimmer-header"></div>
+                            <div class="columns">
+                                <div class="column is-4">
+                                    <div class="shimmer shimmer-line"></div>
+                                    <div class="shimmer shimmer-line"></div>
+                                </div>
+                                <div class="column is-4">
+                                    <div class="shimmer shimmer-line"></div>
+                                    <div class="shimmer shimmer-line"></div>
+                                </div>
+                                <div class="column is-4">
+                                    <div class="shimmer shimmer-line"></div>
+                                    <div class="shimmer shimmer-line"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Section -->
+        <div id="resultsSection" class="is-hidden fade-in">
+            <!-- Verdict Card -->
+            <div class="columns mb-5">
+                <div class="column is-half">
+                    <div class="modern-card has-equal-height">
+                        <div class="card-header primary-gradient p-3 is-flex is-justify-content-space-between">
+                            <h3 class="title is-5 has-text-white mb-0 has-text-weight-medium">Verdict</h3>
+                        </div>
+                        <div class="p-4">
+                            <div class="is-flex is-justify-content-space-between is-align-items-center mb-4">
+                                <h4 id="verdictText" class="title is-3 mb-0 verdict-text">Not Sarcastic</h4>
+                                <span id="confidenceBadge" class="modern-tag is-primary">0% Confidence</span>
+                            </div>
+                            <p id="explanationText" class="mb-4"></p>
+                            <div class="is-flex is-justify-content-space-between mt-4">
+                                <div>
+                                    <span class="modern-tag is-info">
+                                        LLM <span id="llmPrediction" class="ml-2">
+                                            <i class="fas fa-times-circle"></i>
+                                        </span>
+                                    </span>
+                                </div>
+                                <div>
+                                    <span class="modern-tag is-info">
+                                        Embedding <span id="embeddingPrediction" class="ml-2">
+                                            <i class="fas fa-times-circle"></i>
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-half">
+                    <div class="modern-card has-equal-height">
+                        <div class="card-header success-gradient p-3">
+                            <h3 class="title is-5 has-text-white mb-0 has-text-weight-medium">Generated Reply</h3>
+                        </div>
+                        <div class="p-4">
+                            <p id="replyText" class="bengali-text is-size-5"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Analysis Card -->
+            <div class="modern-card mb-5">
+                <div class="card-header grey-gradient p-3">
+                    <h3 class="title is-5 has-text-white mb-0 has-text-weight-medium">Analysis</h3>
+                </div>
+                <div class="p-4">
+                    <div class="columns">
+                        <div class="column is-one-third">
+                            <h5 class="title is-6 mb-3 has-text-weight-medium">
+                                <span class="icon has-text-primary"><i class="fas fa-brain"></i></span>
+                                Reasoning
+                            </h5>
+                            <p id="reasoningText"></p>
+                        </div>
+                        <div class="column is-one-third">
+                            <h5 class="title is-6 mb-3 has-text-weight-medium">
+                                <span class="icon has-text-success"><i class="fas fa-globe-asia"></i></span>
+                                Cultural Context
+                            </h5>
+                            <p id="culturalContextText"></p>
+                        </div>
+                        <div class="column is-one-third">
+                            <h5 class="title is-6 mb-3 has-text-weight-medium">
+                                <span class="icon has-text-info"><i class="fas fa-music"></i></span>
+                                Tone Analysis
+                            </h5>
+                            <p id="toneAnalysisText"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Similar Texts -->
+            <div class="modern-card">
+                <div
+                    class="card-header info-gradient p-3 is-flex is-justify-content-space-between is-align-items-center">
+                    <h3 class="title is-5 has-text-white mb-0 has-text-weight-medium">Similar Texts</h3>
+                    <button class="button is-small is-rounded is-outlined is-white toggle-button" style="border: none;"
+                        data-target="similarTextsCollapse">
+                        <span class="icon">
+                            <i class="fas fa-chevron-down"></i>
+                        </span>
+                    </button>
+                </div>
+                <div id="similarTextsCollapse">
+                    <div class="p-4">
+                        <div id="similarTextsContainer" class="columns is-multiline"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>
